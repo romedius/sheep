@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $timeout) {
 
-    $scope.image = "/img/sheep/lieb.jpg";
+    $scope.image = "/img/sheep/lieb.gif";
     $scope.count = 0;
 
     var audio = new Audio('audio.wav');
@@ -16,24 +16,31 @@ angular.module('starter.controllers', [])
 
       $scope.count++;
 
-      //var number = Math.floor(Math.random() * ((15-8)+1) + 8);
-      var number = Math.floor(Math.random() * 15) + 8;
+
+      var max = 8;
+      var min = 3;
+      var number = Math.floor(Math.random() * (max - min) + min);
 
       var tmp = angular.copy($scope.count);
-      if (tmp % number == 0) {
-
-
+      if ((tmp % number == 0) && tmp > 8) {
 
         $scope.lock = true;
 
         $timeout(function(){
           $scope.lock = false;
-        }, 1000);
+        }, 2000);
 
-        $scope.image = "/img/sheep/evil.jpg";
+        $scope.image = "/img/sheep/evil.gif";
         audio.play();
+
+        $timeout(function(){
+          $scope.$apply();
+        });
       } else {
-        $scope.image = "/img/sheep/lieb.jpg";
+        $scope.image = "/img/sheep/lieb.gif";
+        $timeout(function(){
+          $scope.$apply();
+        });
       }
     }
 
