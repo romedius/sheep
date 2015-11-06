@@ -1,28 +1,17 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
+<ion-view view-title="{{count}}" hide-nav-bar="true">
+  <ion-content class="">
+
+    <h1 style="font-size:300px; position: absolute; top: 20%; left: 0%; color: orange">{{count}}</h1>
+
+      <div style="text-align:center; height: 800px;">
+        <img ng-click="click()" style="max-width: 800px; width: 100%; min-height: 100%" ng-src="{{image}}">
       </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
-      </div>
-    </div>
+
+    <audio controls preload="auto">
+      <source src="audio.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+
+
   </ion-content>
 </ion-view>
