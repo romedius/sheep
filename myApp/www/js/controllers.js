@@ -5,6 +5,7 @@ angular.module('starter.controllers', [])
     $scope.image = "/img/sheep/lieb.gif";
     $scope.count = 0;
 
+    var song = new Audio('schaflied.wav');
     var audio = new Audio('audio.wav');
 
     $scope.click = function() {
@@ -13,9 +14,12 @@ angular.module('starter.controllers', [])
         return;
       }
 
+      if ($scope.count === 0) {
+        song.play();
+      }
+
 
       $scope.count++;
-
 
       var max = 8;
       var min = 3;
